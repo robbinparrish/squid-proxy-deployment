@@ -1,0 +1,35 @@
+#
+# docker-compose file for deploying Squid in Docker.
+#
+
+version: '3.8'
+services:
+  squid:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: squid
+    hostname: squid.mydomain.com
+    ports:
+      - 3128:3128
+    volumes:
+      - ./squid-data/logs:/var/log/squid 
+      - ./squid-data/cache-dir:/var/spool/squid
+      - ./squid-data/backups:/etc/squid/squid-backups
+      - ./configs/squid.conf:/etc/squid/squid.conf
+      - ./configs/squid.conf.d:/etc/squid/conf.d
+    restart: always
+    tty: true
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"

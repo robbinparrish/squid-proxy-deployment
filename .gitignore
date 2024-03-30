@@ -1,0 +1,31 @@
+#
+# .gitignore file - Ignore everything and recursive allow them.
+#
+
+#
+# Ignore everything.
+#
+*
+
+#
+# Recursive allow.
+#
+!.gitignore
+!README.md
+!docker-compose.yml
+!Dockerfile
+!.dockerignore
+!configs
+!configs/
+!configs/automatic-backup/
+!configs/automatic-backup/squid-proxy-deployment-backup.*
+!configs/automatic-backup/README.md
+!configs/backup-and-restore.md
+!configs/upgrading-squid.md
+!configs/user-based-authentication.md
+!configs/certificate-based-authentication.md
+!configs/site-based-access.md
+!configs/caching-configuration.md
+!configs/squid.conf
+!configs/squid.conf.d
+!configs/squid.conf.d/*.conf

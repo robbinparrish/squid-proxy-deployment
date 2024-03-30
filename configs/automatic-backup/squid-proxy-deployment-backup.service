@@ -1,0 +1,5 @@
+[Unit]
+Description=Squid Deployment Backup
+
+[Service]
+ExecStart=/usr/bin/squid-proxy-deployment-backup.sh
